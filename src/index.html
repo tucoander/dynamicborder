@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="border-radius" class="border-radius">
+
+        </div>
+        <div>
+            <label for="numBorderRadius">Top Right</label>
+            <input type="number" id="numBorderRadiusTL">
+        </div>
+        <div>
+            <label for="numBorderRadius">Right Left</label>
+            <input type="number" id="numBorderRadiusTR">
+        </div>
+        <div>
+            <label for="numBorderRadius">Bottom Right</label>
+            <input type="number" id="numBorderRadiusBR">
+        </div>
+        <div>
+            <label for="numBorderRadius">Bottom Left</label>
+            <input type="number" id="numBorderRadiusBL">
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+
+    let numBorderRadiusTL = { borderNumber: 0 };
+    let numBorderRadiusTR = { borderNumber: 0 };
+    let numBorderRadiusBR = { borderNumber: 0 };
+    let numBorderRadiusBL = { borderNumber: 0 };
+
+    document.getElementById("numBorderRadiusTL").value = numBorderRadiusTL.borderNumber;
+    document.getElementById("numBorderRadiusTR").value = numBorderRadiusTR.borderNumber;
+    document.getElementById("numBorderRadiusBR").value = numBorderRadiusBR.borderNumber;
+    document.getElementById("numBorderRadiusBL").value = numBorderRadiusBL.borderNumber;
+    
+    
+    document.getElementById("numBorderRadiusTL").onchange = changeAndLog;
+    document.getElementById("numBorderRadiusTR").onchange = changeAndLog;
+    document.getElementById("numBorderRadiusBR").onchange = changeAndLog;
+    document.getElementById("numBorderRadiusBL").onchange = changeAndLog;
+    
+    function changeAndLog() {
+        
+
+        switch (this.id) {
+            case "numBorderRadiusTL":
+                document.getElementById("border-radius").style.borderTopLeftRadius = this.value+"px";
+                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
+                console.log(this.id);
+                break;
+            case "numBorderRadiusTR":
+                document.getElementById("border-radius").style.borderTopRightRadius = this.value+"px";
+                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
+                console.log(this.id);
+                break;
+            case "numBorderRadiusBR":
+                document.getElementById("border-radius").style.borderBottomRightRadius = this.value+"px";
+                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
+                console.log(this.id);
+                break;
+            case "numBorderRadiusBL":
+                document.getElementById("border-radius").style.borderBottomLeftRadius = this.value+"px";
+                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
+                console.log(this.id);
+                break;
+            } 
+    }
+   
+    
+    // function negativaNotAllowed() {
+    //     console.log("Proibido: "+document.getElementById("numBorderRadiusT").value);
+    // }
+
+
+</script>
+
+</html>

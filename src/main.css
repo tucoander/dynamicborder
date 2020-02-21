@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 270px;
+    min-height: 270px;
+    max-width: 270px;
+    max-height: 270px;
+    background: #b8b8b8;
+    margin: 25px auto;
+}
+
+.container .border-radius{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #333333;
+    min-width: 90px;
+    min-height: 90px;
+    max-width: 90px;
+    max-height: 90px;
+    margin: 20px;
+}
