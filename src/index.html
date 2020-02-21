@@ -43,44 +43,86 @@
     document.getElementById("numBorderRadiusTR").value = numBorderRadiusTR.borderNumber;
     document.getElementById("numBorderRadiusBR").value = numBorderRadiusBR.borderNumber;
     document.getElementById("numBorderRadiusBL").value = numBorderRadiusBL.borderNumber;
-    
-    
+
+
     document.getElementById("numBorderRadiusTL").onchange = changeAndLog;
     document.getElementById("numBorderRadiusTR").onchange = changeAndLog;
     document.getElementById("numBorderRadiusBR").onchange = changeAndLog;
     document.getElementById("numBorderRadiusBL").onchange = changeAndLog;
-    
-    function changeAndLog() {
-        
 
+    function changeAndLog() {
         switch (this.id) {
             case "numBorderRadiusTL":
-                document.getElementById("border-radius").style.borderTopLeftRadius = this.value+"px";
-                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
-                console.log(this.id);
-                break;
+                if (this.value < 0) {
+                    console.log("Not Allowed")
+                    break;
+                } else {
+                    document.getElementById("border-radius").style.borderTopLeftRadius = this.value + "px";
+                    console.log("Updated (BRTL): "+document.getElementById("border-radius").style.borderTopLeftRadius);
+                    break;
+                }
+
             case "numBorderRadiusTR":
-                document.getElementById("border-radius").style.borderTopRightRadius = this.value+"px";
-                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
-                console.log(this.id);
-                break;
+                if (this.value < 0) {
+                    console.log("Not Allowed");
+                    break;
+                } else {
+                    document.getElementById("border-radius").style.borderTopRightRadius = this.value + "px";
+                    console.log("Updated (BRTR): "+document.getElementById("border-radius").style.borderTopRightRadius);
+                    break;
+                }
             case "numBorderRadiusBR":
-                document.getElementById("border-radius").style.borderBottomRightRadius = this.value+"px";
-                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
-                console.log(this.id);
-                break;
+                if (this.value < 0) {
+                    console.log("Not Allowed");
+                    break;
+                } else {
+                    document.getElementById("border-radius").style.borderBottomRightRadius = this.value + "px";
+                    console.log("Updated (BRBR): "+document.getElementById("border-radius").style.borderBottomRightRadius);
+                    break;
+                }
             case "numBorderRadiusBL":
-                document.getElementById("border-radius").style.borderBottomLeftRadius = this.value+"px";
-                console.log(document.getElementById("border-radius").style.borderTopLeftRadius);
-                console.log(this.id);
-                break;
-            } 
+                if (this.value < 0) {
+                    console.log("Not Allowed");
+                    break;
+                } else {
+                    document.getElementById("border-radius").style.borderBottomLeftRadius = this.value + "px";
+                    console.log("Updated (BRBL): "+document.getElementById("border-radius").style.borderBottomLeftRadius);
+                    break;
+                }
+        }
+        let topLeft = "";
+        let topRight = "";
+        let bottomRight = "";
+        let bottomLeft = "";
+
+        let stringReturn = "";
+        if(document.getElementById("border-radius").style[0] != null){
+            topLeft = document.getElementById("border-radius").style[0]+": ";
+            topLeft += document.getElementById("border-radius").style.borderTopLeftRadius+";";
+            
+        }
+        if(document.getElementById("border-radius").style[1] != null){
+            topRight = document.getElementById("border-radius").style[1]+": ";
+            topRight += document.getElementById("border-radius").style.borderTopRightRadius+";";
+        }
+        if(document.getElementById("border-radius").style[2] != null){
+            bottomRight = document.getElementById("border-radius").style[2]+": ";
+            bottomRight += document.getElementById("border-radius").style.borderBottomRightRadius+";";
+        }
+        if(document.getElementById("border-radius").style[3] != null){
+            bottomLeft = document.getElementById("border-radius").style[3]+": ";
+            bottomLeft += document.getElementById("border-radius").style.borderBottomLeftRadius+";";
+        }
+        
+        topLeft != '' ? stringReturn += topLeft+"\n": stringReturn +="";
+        topRight!= '' ? stringReturn += topRight+"\n": stringReturn +="";
+        bottomRight != '' ? stringReturn += bottomRight+"\n": stringReturn +="";
+        bottomLeft != '' ? stringReturn += bottomLeft+"\n": stringReturn +="";
+
+        console.log(stringReturn);
+       
     }
-   
-    
-    // function negativaNotAllowed() {
-    //     console.log("Proibido: "+document.getElementById("numBorderRadiusT").value);
-    // }
+
 
 
 </script>
