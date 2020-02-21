@@ -30,6 +30,10 @@
             <input type="number" id="numBorderRadiusBL">
         </div>
     </div>
+    <div class="container">
+        <div id="retorno-css" >
+        </div>
+    </div>
 </body>
 <script type="text/javascript">
 
@@ -114,12 +118,14 @@
             bottomLeft += document.getElementById("border-radius").style.borderBottomLeftRadius+";";
         }
         
-        topLeft != '' ? stringReturn += topLeft+"\n": stringReturn +="";
-        topRight!= '' ? stringReturn += topRight+"\n": stringReturn +="";
-        bottomRight != '' ? stringReturn += bottomRight+"\n": stringReturn +="";
-        bottomLeft != '' ? stringReturn += bottomLeft+"\n": stringReturn +="";
-
-        console.log(stringReturn);
+        topLeft != '' ? stringReturn += topLeft+"<br>": stringReturn +="";
+        topRight!= '' ? stringReturn += topRight+"<br>": stringReturn +="";
+        bottomRight != '' ? stringReturn += bottomRight+"<br>": stringReturn +="";
+        bottomLeft != '' ? stringReturn += bottomLeft+"<br>": stringReturn +="";
+        let consoleReturn = "";
+        consoleReturn = stringReturn.replace("<br>", "\n");
+        console.log(consoleReturn);
+        document.getElementById("retorno-css").innerHTML = stringReturn;
        
     }
 
